@@ -5,7 +5,8 @@ const http= require('http');
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey("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")
+// sgMail.setApiKey("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")
+sgMail.setApiKey("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")
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
