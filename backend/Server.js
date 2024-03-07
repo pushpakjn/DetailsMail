@@ -1,4 +1,5 @@
 const express = require("express");
+const forceHttps = require('express-force-https');
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
@@ -11,7 +12,7 @@ const app = express();
 dotenv.config();
 // MongoDB connection
 connectDB();
-
+app.use(forceHttps);
 // Define User Schema
 const userSchema = new mongoose.Schema({
   name: String,
