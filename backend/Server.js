@@ -110,7 +110,8 @@ app.post("/send-email", async (req, res) => {
     }
 
     const msg = {
-      to: 'info@redpositive.in', // Change to your recipient
+      // to: 'info@redpositive.in',
+      to: 'pk4pushpak@gmail.com', // Change to your recipient
       from: 'officialpjain@gmail.com', // Change to your verified sender
       subject: 'Sending with SendGrid is Fun',
       text: emailBody,
