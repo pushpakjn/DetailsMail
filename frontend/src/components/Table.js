@@ -209,11 +209,14 @@ const Table = () => {
   return (
     <div className="container mx-auto mt-8">
       <AddUserButton onClick={addUser} />
+      {users && (
       <UserTable
         users={users}
         deleteUser={deleteUser}
         updateUser={updateUser}
       />
+      )
+      }
       {selectedUser && isOpen && (
         <div
           className="fixed z-10 inset-0 overflow-y-auto bg-gray-900 bg-opacity-90"
