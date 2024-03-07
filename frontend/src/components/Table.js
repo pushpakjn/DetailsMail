@@ -32,12 +32,12 @@ const UserTable = ({ users, deleteUser, updateUser }) => {
 
       for (const userId of arr) {
         const response = await axios.get(
-          `http://localhost:5000/user/${userId}`
+          `https://detailsmail.onrender.com/user/${userId}`
         );
         userData[userId] = response.data;
       }
 
-      await axios.post("http://localhost:5000/send-email", {
+      await axios.post("https://detailsmail.onrender.com/send-email", {
         userData: userData,
       });
       console.log("Email sent");
@@ -140,7 +140,7 @@ const Table = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/users");
+        const response = await axios.get("https://detailsmail.onrender.com/users");
         setUsers(response.data);
       } catch (error) {
         console.error(error);
@@ -151,7 +151,7 @@ const Table = () => {
 
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/user/${id}`);
+      await axios.delete(`https://detailsmail.onrender.com/user/${id}`);
       setUsers(users.filter((user) => user._id !== id));
     } catch (error) {
       console.error(error);
@@ -171,7 +171,7 @@ const Table = () => {
 
   const fetchUserData = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:5000/user/${id}`);
+      const response = await axios.get(`https://detailsmail.onrender.com/user/${id}`);
       setSelectedUser(response.data);
     } catch (error) {
       console.error("Error fetching user data:", error);
@@ -197,7 +197,7 @@ const Table = () => {
         return;
       }
       await axios.put(
-        `http://localhost:5000/user/${selectedUser._id}`,
+        `https://detailsmail.onrender.com/user/${selectedUser._id}`,
         selectedUser
       );
       setIsOpen(false);
