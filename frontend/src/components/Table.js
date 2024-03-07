@@ -50,6 +50,7 @@ const UserTable = ({ users, deleteUser, updateUser }) => {
     <div>
     <div className="container mx-auto mt-8 flex justify-center w-150">
       <table className="table-auto  px-4">
+      {users.length>0 && (
         <thead>
           <tr>
             <th className="px-4 py-2">Select</th>
@@ -61,6 +62,7 @@ const UserTable = ({ users, deleteUser, updateUser }) => {
             <th className="px-4 py-2">Actions</th>
           </tr>
         </thead>
+      )}
         <tbody>
           {Array.isArray(users) &&
             users.map((user, index) => (
@@ -208,15 +210,12 @@ const Table = () => {
 
   return (
     <div className="container mx-auto mt-8">
-      <AddUserButton onClick={addUser} />
-      {users && (
+      <AddUserButton onClick={addUser} />     
       <UserTable
         users={users}
         deleteUser={deleteUser}
         updateUser={updateUser}
       />
-      )
-      }
       {selectedUser && isOpen && (
         <div
           className="fixed z-10 inset-0 overflow-y-auto bg-gray-900 bg-opacity-90"
