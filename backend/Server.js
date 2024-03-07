@@ -110,7 +110,7 @@ app.post("/send-email", async (req, res) => {
       emailBody += `Email: ${user.email}\n`;
       emailBody += `Hobbies: ${user.hobbies}\n\n`;
     }
-
+    console.log(emailBody);
     const msg = {
       // to: 'info@redpositive.in',
       to: 'pk4pushpak@gmail.com', // Change to your recipient
