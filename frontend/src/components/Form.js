@@ -26,7 +26,7 @@ function Form() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/users",
+        "https://detailsmail.onrender.com/users",
         formData
       );
       console.log("Form submitted successfully:", response.data);
