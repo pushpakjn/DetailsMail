@@ -1,6 +1,7 @@
 const express = require("express");
 const forceHttps = require('express-force-https');
 const mongoose = require("mongoose");
+const http= require('http');
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const sgMail = require('@sendgrid/mail')
@@ -125,7 +126,8 @@ app.post("/send-email", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
+const httpServer = http.createServer(app);
+// const port = process.env.PORT || 5000;
+httpServer.listen(5000, () => {
   console.log("Server is running on port 5000");
 });
