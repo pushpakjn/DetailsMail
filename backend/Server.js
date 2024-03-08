@@ -5,6 +5,8 @@ const http = require("http");
 const dotenv = require("dotenv");
 const sgMail = require("@sendgrid/mail");
 const connectDB = require("./config/db");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 dotenv.config();
@@ -24,6 +26,8 @@ const User = mongoose.model("User", userSchema);
 
 // Middleware
 app.use(forceHttps);
+app.use(cors());
+app.use(bodyParser.json());
 app.use(express.json());
 
 // Routes
