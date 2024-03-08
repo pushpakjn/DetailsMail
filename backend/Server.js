@@ -130,7 +130,7 @@ app.post("/send-email", async (req, res) => {
   }
 });
 const httpServer = http.createServer(app);
-// const port = process.env.PORT || 5000;
-httpServer.listen(5000, () => {
+const port = process.env.PORT || 5000;
+httpServer.listen(port, () => {
   console.log("Server is running on port 5000");
 });
