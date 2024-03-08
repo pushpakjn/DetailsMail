@@ -6,12 +6,13 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const sgMail = require('@sendgrid/mail')
 // sgMail.setApiKey("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")
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
 dotenv.config();
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 // MongoDB connection
 connectDB();
 app.use(forceHttps);
